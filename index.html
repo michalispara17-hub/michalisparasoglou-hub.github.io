@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Social Media & Marketing Portfolio</title>
+
+  <!-- Manrope font with Arial fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --border: #e5e7eb;
+      --dark: #0f172a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, video, iframe {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 248, 251, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: white;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 96px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1e40af;
+      font-weight: 800;
+      font-size: 0.82rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+    }
+
+    .profile-placeholder {
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(15, 23, 42, 0.08)),
+        url("profile.jpg");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: end;
+      padding: 22px;
+      color: var(--dark);
+      font-weight: 800;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 56px rgba(15, 23, 42, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
+    .work-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .work-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .work-media {
+      aspect-ratio: 16 / 9;
+      background: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .work-content {
+      padding: 24px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #020617;
+    }
+
+    .video-wrapper iframe,
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      object-fit: cover;
+    }
+
+    .about-box {
+      background: var(--dark);
+      color: white;
+      border-radius: 32px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .about-box p {
+      color: #cbd5e1;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .about-list li {
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      color: #e5e7eb;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .contact {
+      text-align: center;
+      background: white;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.06em;
+      margin-bottom: 16px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 28px;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-box {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      .about-box {
+        padding: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Your Name</a>
+
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a class="btn btn-primary" href="cv.pdf" download>Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Social Media · Marketing · Content Creation</span>
+          <h1>Building content that connects brands with people.</h1>
+          <p>
+            I create social media content, marketing assets, video concepts and platform-focused communication
+            that helps businesses present their value clearly, consistently and effectively.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">View My Work</a>
+            <a class="btn btn-secondary" href="cv.pdf" download>Download CV</a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-placeholder">
+            Add your profile image as profile.jpg
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>What I Do</h2>
+          <p>
+            A mix of creative, strategic and performance-focused services for social media,
+            digital marketing and brand communication.
+          </p>
+        </div>
+
+        <div class="grid services-grid">
+          <article class="card">
+            <h3>Graphic Post Design</h3>
+            <p>
+              Designing branded social media posts, visual concepts and creative assets for digital campaigns.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Post Design</span>
+              <span class="tag">Brand Visuals</span>
+              <span class="tag">Campaign Assets</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Social Media Copywriting</h3>
+            <p>
+              Writing clear, engaging and platform-appropriate descriptions for posts, campaigns and announcements.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Captions</span>
+              <span class="tag">Post Descriptions</span>
+              <span class="tag">Messaging</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Social Media Management</h3>
+            <p>
+              Managing brand presence across LinkedIn, Facebook and Instagram with consistent content planning.
+            </p>
+            <div class="tag-list">
+              <span class="tag">LinkedIn</span>
+              <span class="tag">Facebook</span>
+              <span class="tag">Instagram</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Meta Ads</h3>
+            <p>
+              Supporting paid social campaigns with ad creatives, copy, targeting ideas and campaign structure.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Meta Ads</span>
+              <span class="tag">Paid Social</span>
+              <span class="tag">Ad Copy</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>SEO & Marketing Research</h3>
+            <p>
+              Conducting keyword, market and competitor research to support content strategy and brand visibility.
+            </p>
+            <div class="tag-list">
+              <span class="tag">SEO</span>
+              <span class="tag">Research</span>
+              <span class="tag">Strategy</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Lead Research</h3>
+            <p>
+              Researching potential leads, audiences and market opportunities to support business development.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Lead Research</span>
+              <span class="tag">Prospecting</span>
+              <span class="tag">Market Insights</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>YouTube Video Creation</h3>
+            <p>
+              Creating tutorial-style videos that explain how users can navigate and use a digital platform.
+            </p>
+            <div class="tag-list">
+              <span class="tag">YouTube</span>
+              <span class="tag">Tutorials</span>
+              <span class="tag">Platform Guides</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>YouTube Channel Management</h3>
+            <p>
+              Supporting channel structure, video uploads, descriptions, thumbnails and content organization.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Channel Management</span>
+              <span class="tag">Video Uploads</span>
+              <span class="tag">Optimization</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Video Scripts & Storyboards</h3>
+            <p>
+              Creating scripts and storyboards for videos used in exhibitions, events and brand presentations.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Scriptwriting</span>
+              <span class="tag">Storyboard</span>
+              <span class="tag">Exhibition Videos</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-header">
+          <h2>Selected Work</h2>
+          <p>
+            Replace the placeholders below with your real projects, screenshots, social posts, campaigns or video thumbnails.
+          </p>
+        </div>
+
+        <div class="grid work-grid">
+          <article class="card work-card">
+            <div class="work-media">
+              Add image: social-post-1.jpg
+            </div>
+            <div class="work-content">
+              <h3>Social Media Campaign Design</h3>
+              <p>
+                Branded post concepts designed for LinkedIn, Facebook and Instagram.
+              </p>
+            </div>
+          </article>
+
+          <article class="card work-card">
+            <div class="work-media">
+              Add image: meta-ads.jpg
+            </div>
+            <div class="work-content">
+              <h3>Meta Ads Creative</h3>
+              <p>
+                Visual and copy assets created to support paid social campaigns.
+              </p>
+            </div>
+          </article>
+
+          <article class="card work-card">
+            <div class="work-media">
+              Add image: youtube-video.jpg
+            </div>
+            <div class="work-content">
+              <h3>YouTube Platform Tutorial</h3>
+              <p>
+                Tutorial video content explaining how users can operate a platform.
+              </p>
+            </div>
+          </article>
+
+          <article class="card work-card">
+            <div class="work-media">
+              Add image: storyboard.jpg
+            </div>
+            <div class="work-content">
+              <h3>Exhibition Video Storyboard</h3>
+              <p>
+                Script and storyboard planning for event and exhibition video content.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="video">
+      <div class="container">
+        <div class="section-header">
+          <h2>Video Showcase</h2>
+          <p>
+            Add a YouTube embed or a local video file to showcase tutorials, platform videos or exhibition content.
+          </p>
+        </div>
+
+        <div class="video-wrapper">
+          <!-- Option 1: YouTube embed. Replace VIDEO_ID with your YouTube video ID. -->
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Portfolio Video"
+            allowfullscreen>
+          </iframe>
+
+          <!-- Option 2: Local video file. Remove the iframe above and uncomment this:
+          <video controls>
+            <source src="portfolio-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-box">
+          <div>
+            <h2>About Me</h2>
+            <p>
+              I am a social media and marketing professional focused on creating content that is visually clear,
+              strategically structured and aligned with each platform’s audience. My work combines design,
+              copywriting, research, video planning and channel management.
+            </p>
+          </div>
+
+          <ul class="about-list">
+            <li>Social media content design and copywriting</li>
+            <li>LinkedIn, Facebook and Instagram management</li>
+            <li>Meta Ads creative and campaign support</li>
+            <li>SEO, marketing research and lead research</li>
+            <li>YouTube tutorials, channel management and video planning</li>
+            <li>Scripts and storyboards for exhibition videos</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Let’s work together.</h2>
+        <p>
+          For social media content, digital marketing support, video concepts or campaign communication,
+          feel free to contact me.
+        </p>
+
+        <div class="hero-actions" style="justify-content: center;">
+          <a class="btn btn-primary" href="mailto:your.email@example.com">Email Me</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Your Name. All rights reserved.</span>
+      <span>Social Media · Marketing · Content Creation</span>
+    </div>
+  </footer>
+</body>
+</html>
